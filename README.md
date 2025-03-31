@@ -31,9 +31,6 @@ Game class
 --- get the Board class to validate and provide feedback
 --- get Interface class to provide feedback and display board
 --- get State class to track game over conditions
-3. replay
---- repeat rounds until game over
--- ask to play another round 
 
 State class
 - purposes: tracks the guess history
@@ -57,11 +54,17 @@ Interface class
 - instance variables
 - instance methods: 
 -- gets guesser's inputs
--- validates inputs
--- prints message if invalid guess
+-- validates inputs, transforms inputs to case insensitive
+-- prints messages
 -- display guess
 -- display history of guess after every turn
--- display hints 
+-- display win & game over announcements
 
  main.rb
 - instantiate new Game object
+- loops to ask to play another round 
+
+Testing
+- script to test word class
+- script to test game play
+- script to test saving & load
