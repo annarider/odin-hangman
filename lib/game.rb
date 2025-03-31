@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
-# main contains the main execution
-# for the tic-tac-toe game.
+# Game class is the controller
+# responsible for actively managing the game.
+# It initializes the game objects, such as
+# interface and board, prompts the objects
+# to perform actions.
 #
 # @example Create a new Game 
 # game = Game.new
