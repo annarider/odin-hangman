@@ -8,9 +8,9 @@
 #
 # @example Create a new Game 
 # game = Game.new
-require_relative 'secret'
-
 class Game
+  require_relative 'secret'
+  
   NUMBER_OF_ROUNDS = 12
   
   attr_accessor :word, :board, :state, :interface
