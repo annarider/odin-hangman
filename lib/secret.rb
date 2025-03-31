@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-# Word class manages choosing
+# Secret class manages choosing
 # a word from the dictionary
 # and making sure it meets
 # the length requirements.
 #
 # @example Creating a new word object
-# word = Word.new
-class Word
+# word = Secret.new
+class Secret
   MIN_WORD_LENGTH = 5
   MAX_WORD_LENGTH = 12
   FILE_NAME = 'google-10000-english-no-swears.txt'
@@ -16,8 +16,12 @@ class Word
 
   def initialize
     @dictionary = File.read(FILE_NAME).split
+    @word = pick_word
   end
 
   private
-  
+
+  def pick_word
+    @dictionary.select { |word| word.length.between?(MIN_WORD_LENGTH, MAX_WORD_LENGTH)}.sample
+  end
 end

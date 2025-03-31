@@ -3,7 +3,7 @@ The Odin Project's Hangman Project
 
 Let's plan and outline first before writing code. How does this structure look? 
 
-Word Class
+Secret Class
 - purpose: 
 -- responsible for choosing a word from the dictionary
 constants
