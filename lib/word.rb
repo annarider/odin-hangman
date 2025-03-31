@@ -10,10 +10,14 @@
 class Word
   MIN_WORD_LENGTH = 5
   MAX_WORD_LENGTH = 12
+  FILE_NAME = 'google-10000-english-no-swears.txt'
 
   attr_accessor :dictionary, :word 
 
   def initialize
-    
+    @dictionary = File.read(FILE_NAME).split
   end
+
+  private
+  
 end
