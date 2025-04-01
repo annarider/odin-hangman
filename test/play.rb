@@ -55,6 +55,8 @@ module TestPlay
     p "feedback on random vowel: #{@board.track(random_vowel)}"
     p "feedback on guess: #{@board.track(@guess)}"
     p @guess
+    p "correct guesses: #{@board.correct_guesses}"
+    p "guesses letters: #{@board.guessed_letters}"
   end
 
   def self.test_game_over

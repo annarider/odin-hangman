@@ -38,6 +38,13 @@ class Board
     @word.chars.each_with_index do |letter, i|
       letter_indices << i if letter == guess
     end
+    update_correct_guesses(guess, letter_indices)
     letter_indices
+  end
+
+  def update_correct_guesses(guess, indices)
+    indices.each do |i|
+      @correct_guesses[i] = guess
+    end
   end
 end
