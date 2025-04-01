@@ -8,13 +8,12 @@
 require_relative '../lib/secret'
 
 # test 1 word
-secret = Secret.new
+secret = Secret.pick_word
 p "Secret object initialized: #{secret ? 'PASS' : 'FAIL'}"
 
 # test 10 words
 10.times do |i|
-  word = Secret.new
-  chosen_word = word.word
+  chosen_word = Secret.pick_word
   p "Test #{i + 1}: Word = #{chosen_word}, length = #{chosen_word.length}"
   p "Length between min & max lengths #{chosen_word.length.between?(Secret::MIN_WORD_LENGTH, Secret::MAX_WORD_LENGTH)}"
 end
