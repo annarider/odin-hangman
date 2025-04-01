@@ -72,4 +72,3 @@ if __FILE__ == $PROGRAM_NAME
   # TestPlay.test_board_history
   TestPlay.test_interface
 end
-end
