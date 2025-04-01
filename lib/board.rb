@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Board controls the game rules
 # for the Hangman game. Its duties
 # include validating guesses and
@@ -12,15 +10,16 @@ class Board
 
   NUMBER_OF_ROUNDS = 12
   
-  attr_accessor :word, :guessed_letters
+  attr_accessor :word, :guessed_letters, :correct_guesses
 
   def initialize(word = nil)
     @word = word
-    @guessed_letters = '_' * @word.length
+    @correct_guesses = '_' * @word.length
+    @guessed_letters = ''
   end
 
   def win?
-    @word == @guessed_letters
+    @word == @correct_guesses
   end
 
   def track(guess)
