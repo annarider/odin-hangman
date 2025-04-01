@@ -19,4 +19,16 @@ class Board
     @guess_history = '_' * @word.length
     @current_letter = current_guess
   end
+
+  def win?
+    false
+  end
+
+  def game_over?
+    false
+  end
+
+  def feedback
+    false
+  end
 end
