@@ -42,6 +42,13 @@ module TestPlay
     p "check random guess: #{@board.win?}"
   end
 
+  def self.test_state
+    state = State.new(Game::NUMBER_OF_ROUNDS)
+    p state
+    p state.game_over?
+    p state.remaining_guesses
+  end
+
   def self.test_guess_feedback
     p "feedback: #{@board.feedback(@secret_word)}"
     p "feedback: #{@board.feedback(@guess)}"
@@ -71,6 +78,7 @@ end
 if __FILE__ == $PROGRAM_NAME
   TestPlay.setup
   TestPlay.test_board_setup
+  TestPlay.test_state
   # TestPlay.test_guess_feedback
   # TestPlay.test_gameover
   # TestPlay.test_board_history
