@@ -28,14 +28,14 @@ module TestPlay
   def self.setup
     p @word
     @secret_word = Secret.pick_word
-    p @secret_word
+    p "Secret word: #{@secret_word}"
     @board = Board.new(@secret_word)
     @game = Game.new
   end
   
   def self.test_board_setup
     @guess = 'a'
-    @board.word = @guess
+    # @board.word = @guess
     p "board: #{@board}"
     p "board: #{@board.word}, #{board.track(@guess)}"
     p "check word guess: #{@board.win?}"
@@ -45,20 +45,23 @@ module TestPlay
   def self.test_state
     state = State.new(Game::NUMBER_OF_ROUNDS)
     p state
-    p state.game_over?(@board)
-    p state.remaining_guesses
+    p "game_over? #{state.game_over?(@board)}"
+    p "remaining guesses: #{state.remaining_guesses}"
   end
 
   def self.test_guess_feedback
-    p "feedback: #{@board.track(@secret_word)}"
-    p "feedback: #{@board.track(@guess)}"
+    random_vowel = ['a', 'e', 'i', 'o', 'u', 'y'].sample
+    p random_vowel
+    p "feedback on random vowel: #{@board.track(random_vowel)}"
+    p "feedback on guess: #{@board.track(@guess)}"
+    p @guess
   end
 
-  def self.test_gameover
+  def self.test_game_over
     @board.current_guess = @secret_word ## have Game class call to set guess
-    p "gameover with code? #{@board.game_over?}, #{@secret_word}"
+    p "game_over with code? #{@board.game_over?}, #{@secret_word}"
     @board.current_guess = @guess
-    p "gameover with guess? #{@board.game_over?}, #{@guess}}"
+    p "game_over with guess? #{@board.game_over?}, #{@guess}}"
   end
 
   def self.test_board_history
@@ -80,7 +83,7 @@ if __FILE__ == $PROGRAM_NAME
   TestPlay.test_board_setup
   TestPlay.test_state
   TestPlay.test_guess_feedback
-  # TestPlay.test_gameover
+  # TestPlay.test_game_over
   # TestPlay.test_board_history
   # TestPlay.test_interface
 end
