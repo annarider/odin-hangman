@@ -62,9 +62,10 @@ module TestPlay
   def self.test_game_over
     @board.correct_guesses = @secret_word ## have Game class call to set guess
     p "game_over with code? #{@board.win?}, #{@secret_word}"
+    p "game_over with state: #{@state.game_over?(@board)}"
     @board.correct_guesses = @guess
     p "game_over with guess? #{@board.win?}, #{@guess}"
-    p "game_over with state: #{@state.gam}"
+    p "game_over with state: #{@state.game_over?(@board)}"
   end
 
   def self.test_board_history
