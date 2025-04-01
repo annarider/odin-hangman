@@ -10,13 +10,11 @@
 # @example Create a new Game State
 # state = State.new
 class State
-  attr_accessor :remaining_guesses, :guessed_letters, :game_over, :winner
+  attr_accessor :remaining_guesses, :guessed_letters
 
   def initialize(rounds = 0)
     @remaining_guesses = rounds
-    @guessed_letters = []
-    @game_over = false
-    @winner = false
+    @guessed_letters = ''
   end
 
   def game_over?(board)
