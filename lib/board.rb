@@ -25,14 +25,14 @@ class Board
 
   def track(guess)
     @guessed_letters << guess
-    feedback(guess)
+    if word.include?(guess)
+      correct(guess)
+    else
+      nil
+    end
   end
 
   private 
-
-  def feedback(guess)
-    correct(guess) if word.include?(guess)
-  end
 
   def correct(guess)
     letter_indices = []
