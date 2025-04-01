@@ -45,7 +45,7 @@ module TestPlay
   def self.test_state
     state = State.new(Game::NUMBER_OF_ROUNDS)
     p state
-    p state.game_over?
+    p state.game_over?(@board)
     p state.remaining_guesses
   end
 
