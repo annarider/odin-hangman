@@ -68,8 +68,8 @@ module TestPlay
     p "game_over with state: #{@state.game_over?(@board)}"
   end
 
-  def self.test_board_history
-    p "history: #{@board.history}"
+  def self.test_game
+    p "game: #{@game}"
   end
 
   def self.test_interface
@@ -88,6 +88,6 @@ if __FILE__ == $PROGRAM_NAME
   TestPlay.test_state
   TestPlay.test_guess_feedback
   TestPlay.test_game_over
-  # TestPlay.test_board_history
+  TestPlay.test_game
   # TestPlay.test_interface
 end
