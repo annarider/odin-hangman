@@ -37,7 +37,7 @@ module TestPlay
     @guess = 'a'
     @board.word = @guess
     p "board: #{@board}"
-    p "board: #{@board.word}, #{board.track(guess)}"
+    p "board: #{@board.word}, #{board.track(@guess)}"
     p "check word guess: #{@board.win?}"
     p "check random guess: #{@board.win?}"
   end
@@ -50,8 +50,8 @@ module TestPlay
   end
 
   def self.test_guess_feedback
-    p "feedback: #{@board.feedback(@secret_word)}"
-    p "feedback: #{@board.feedback(@guess)}"
+    p "feedback: #{@board.track(@secret_word)}"
+    p "feedback: #{@board.track(@guess)}"
   end
 
   def self.test_gameover
@@ -79,7 +79,7 @@ if __FILE__ == $PROGRAM_NAME
   TestPlay.setup
   TestPlay.test_board_setup
   TestPlay.test_state
-  # TestPlay.test_guess_feedback
+  TestPlay.test_guess_feedback
   # TestPlay.test_gameover
   # TestPlay.test_board_history
   # TestPlay.test_interface

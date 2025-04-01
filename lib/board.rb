@@ -31,13 +31,14 @@ class Board
   private 
 
   def feedback(guess)
-    if word.include?(guess)
-      correct_guess
-    else
-      incorrect_guess
-    end
+    correct(guess) if word.include?(guess)
   end
 
-  def correct_guess
+  def correct(guess)
+    letter_indices = []
+    @word.chars.each_with_index do |letter, i|
+      letter_indices << i if letter == guess
+    end
+    letter_indices
   end
 end
