@@ -14,4 +14,12 @@ class Interface
     guessing player. I will pick a word, and
     you get to guess the letters."
   end
+
+  def guess
+    'Placeholder message'
+  end
+
+  def valid?
+    'Check'
+  end
 end
