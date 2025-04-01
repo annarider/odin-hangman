@@ -11,10 +11,11 @@ require_relative '../lib/game'
 require_relative '../lib/board'
 require_relative '../lib/interface'
 require_relative '../lib/state'
+require_relative 'word'
 
 module TestPlay
   class << self
-    attr_accessor :word, :board, :guess, :game
+    attr_accessor :secret_word, :board, :guess, :game
   end
 
   class MockInterface < Interface
@@ -25,26 +26,28 @@ module TestPlay
   end
 
   def self.setup
-    @word = Secret.word
+    p @word
+    @secret_word = Secret.pick_word
+    p @secret_word
     @guess = ['a', 'e', 'i']
-    @board = Board.new(@word, @guess)
+    @board = Board.new(@secret_word, @guess)
     @game = Game.new
   end
 
   def self.test_board_setup
     p "board: #{@board}"
-    p "check word guess: #{@board.win?(@word)}"
+    p "check word guess: #{@board.win?(@secret_word)}"
     p "check random guess: #{@board.win?(@guess)}"
   end
 
   def self.test_guess_feedback
-    p "feedback: #{@board.feedback(@word)}"
+    p "feedback: #{@board.feedback(@secret_word)}"
     p "feedback: #{@board.feedback(@guess)}"
   end
 
   def self.test_gameover
-    @board.current_guess = @word ## have Game class call to set guess
-    p "gameover with code? #{@board.game_over?}, #{@word}"
+    @board.current_guess = @secret_word ## have Game class call to set guess
+    p "gameover with code? #{@board.game_over?}, #{@secret_word}"
     @board.current_guess = @guess
     p "gameover with guess? #{@board.game_over?}, #{@guess}}"
   end
@@ -69,5 +72,5 @@ if __FILE__ == $PROGRAM_NAME
   # TestPlay.test_guess_feedback
   # TestPlay.test_gameover
   # TestPlay.test_board_history
-  TestPlay.test_interface
+  # TestPlay.test_interface
 end
