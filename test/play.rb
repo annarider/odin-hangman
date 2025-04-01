@@ -51,13 +51,12 @@ module TestPlay
 
   def self.test_board_history
     p "history: #{@board.history}"
-    p "hint: #{@board.hint}"
   end
 
   def self.test_interface
     interface = Interface.new
     interface.welcome
-    guess = interface.request_guess
+    guess = interface.guess
     p guess
     p interface.valid?(guess)
     interface.show_board(@board)
