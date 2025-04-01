@@ -15,7 +15,7 @@ require_relative 'word'
 
 module TestPlay
   class << self
-    attr_accessor :secret_word, :board, :guess, :game
+    attr_accessor :secret_word, :board, :guess, :game, :state
   end
 
   class MockInterface < Interface
@@ -31,6 +31,7 @@ module TestPlay
     p "Secret word: #{@secret_word}"
     @board = Board.new(@secret_word)
     @game = Game.new
+    @state = State.new(Game::NUMBER_OF_ROUNDS)
   end
   
   def self.test_board_setup
@@ -41,12 +42,11 @@ module TestPlay
     p "check word guess: #{@board.win?}"
     p "check random guess: #{@board.win?}"
   end
-
+  
   def self.test_state
-    state = State.new(Game::NUMBER_OF_ROUNDS)
-    p state
-    p "game_over? #{state.game_over?(@board)}"
-    p "remaining guesses: #{state.remaining_guesses}"
+    p @state
+    p "game_over? #{@state.game_over?(@board)}"
+    p "remaining guesses: #{@state.remaining_guesses}"
   end
 
   def self.test_guess_feedback
@@ -60,10 +60,11 @@ module TestPlay
   end
 
   def self.test_game_over
-    @board.current_guess = @secret_word ## have Game class call to set guess
-    p "game_over with code? #{@board.game_over?}, #{@secret_word}"
-    @board.current_guess = @guess
-    p "game_over with guess? #{@board.game_over?}, #{@guess}}"
+    @board.correct_guesses = @secret_word ## have Game class call to set guess
+    p "game_over with code? #{@board.win?}, #{@secret_word}"
+    @board.correct_guesses = @guess
+    p "game_over with guess? #{@board.win?}, #{@guess}"
+    p "game_over with state: #{@state.gam}"
   end
 
   def self.test_board_history
@@ -85,7 +86,7 @@ if __FILE__ == $PROGRAM_NAME
   TestPlay.test_board_setup
   TestPlay.test_state
   TestPlay.test_guess_feedback
-  # TestPlay.test_game_over
+  TestPlay.test_game_over
   # TestPlay.test_board_history
   # TestPlay.test_interface
 end
