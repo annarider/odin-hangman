@@ -29,15 +29,17 @@ module TestPlay
     p @word
     @secret_word = Secret.pick_word
     p @secret_word
-    @guess = ['a', 'e', 'i']
+    @guess = 'a'
     @board = Board.new(@secret_word, @guess)
     @game = Game.new
   end
 
   def self.test_board_setup
+    @board.word = @guess
     p "board: #{@board}"
-    p "check word guess: #{@board.win?(@secret_word)}"
-    p "check random guess: #{@board.win?(@guess)}"
+    p "board: #{@board.word}, #{board.guess_history}"
+    p "check word guess: #{@board.win?}"
+    p "check random guess: #{@board.win?}"
   end
 
   def self.test_guess_feedback
@@ -68,7 +70,7 @@ end
 
 if __FILE__ == $PROGRAM_NAME
   TestPlay.setup
-  # TestPlay.test_board_setup
+  TestPlay.test_board_setup
   # TestPlay.test_guess_feedback
   # TestPlay.test_gameover
   # TestPlay.test_board_history

@@ -14,18 +14,14 @@ class Board
   
   attr_accessor :word, :guess_history, :current_letter
 
-  def initialize(word = nil, current_guess = nil)
+  def initialize(word = nil, current_letter = nil)
     @word = word
     @guess_history = '_' * @word.length
-    @current_letter = current_guess
+    @current_letter = current_letter
   end
 
   def win?
-    false
-  end
-
-  def game_over?
-    false
+    @word == @guess_history
   end
 
   def feedback
