@@ -12,19 +12,32 @@ class Board
 
   NUMBER_OF_ROUNDS = 12
   
-  attr_accessor :word, :guessed_letters, :current_letter
+  attr_accessor :word, :guessed_letters
 
-  def initialize(word = nil, current_letter = nil)
+  def initialize(word = nil)
     @word = word
     @guessed_letters = '_' * @word.length
-    @current_letter = current_letter
   end
 
   def win?
     @word == @guessed_letters
   end
 
-  def feedback
-    false
+  def track(guess)
+    @guessed_letters << guess
+    feedback(guess)
+  end
+
+  private 
+
+  def feedback(guess)
+    if word.include?(guess)
+      correct_guess
+    else
+      incorrect_guess
+    end
+  end
+
+  def correct_guess
   end
 end

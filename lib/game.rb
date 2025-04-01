@@ -18,8 +18,7 @@ class Game
   def initialize
     @word = Secret.pick_word
     @interface = Interface.new
-    guess = @interface.guess
-    @board = Board.new(@word, guess)
+    @board = Board.new(@word)
     @state = State.new(NUMBER_OF_ROUNDS)
   end
 end

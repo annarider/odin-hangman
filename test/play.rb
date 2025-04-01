@@ -29,15 +29,15 @@ module TestPlay
     p @word
     @secret_word = Secret.pick_word
     p @secret_word
-    @guess = 'a'
-    @board = Board.new(@secret_word, @guess)
+    @board = Board.new(@secret_word)
     @game = Game.new
   end
-
+  
   def self.test_board_setup
+    @guess = 'a'
     @board.word = @guess
     p "board: #{@board}"
-    p "board: #{@board.word}, #{board.guess_history}"
+    p "board: #{@board.word}, #{board.track(guess)}"
     p "check word guess: #{@board.win?}"
     p "check random guess: #{@board.win?}"
   end
