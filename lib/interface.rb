@@ -38,11 +38,7 @@ class Interface
 
   def announce_lose
     puts "😱 Game over. Sorry you ran out of guesses and lost."
-  end
-
-  def show_word(board)
-    add_spaces(board.correct_guesses)
-  end
+  end  
   
   private
   
@@ -50,31 +46,35 @@ class Interface
     guess = gets.chomp.downcase.delete(' ')
     guess = guess_again(board) until valid?(board, guess)
     guess  
-  end
+  end  
   
   def valid?(board, guess)
     return false unless guess.length == 1
-
+    
     return false if board.guessed_letters.include?(guess)
-
+    
     guess.match?(/[a-z]/)
-  end
-
+  end  
+  
   def guess_again(board)
     puts '❌ Invalid letter or you already guessed this letter. Try again.'
     puts valid_guess_example
     puts guess_history(board)
     request_guess(board)
-  end
-
+  end  
+  
   def valid_guess_example
     '🔠 You can pick any letter of the alphabet from a to z.'
-  end
-
+  end  
+  
   def guess_history(board)
     "↔️ History of guesses: #{board.guessed_letters}"
+  end  
+  
+  def show_word(board)
+    add_spaces(board.correct_guesses)
   end
-
+  
   def add_spaces(string)
     string.split('').join(' ')
   end
