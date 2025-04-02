@@ -75,7 +75,7 @@ module TestPlay
 
   def self.test_interface
     interface = Interface.new
-    interface.welcome
+    p interface.welcome
     guess = interface.guess
     p guess
     p interface.valid?(guess)

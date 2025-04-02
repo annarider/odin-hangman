@@ -35,18 +35,23 @@ class Interface
   def announce_lose
     puts "Game over. Sorry you ran out of guesses and lost."
   end
-
+  
   private
-
+  
   def request_guess
     guess = gets.chomp.downcase.delete(' ')
     guess = guess_again until valid?(guess)
     guess  
   end
-
+  
   def valid?(guess)
     return false unless guess.length == 1 
 
-    guess =~ /[a-z]/
+    guess.match?(/[a-z]/)
+  end
+
+  def guess_again
+    puts '❌ Invalid letter. Please guess again.'
+    request_guess
   end
 end
