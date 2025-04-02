@@ -9,10 +9,13 @@
 # @example Create a new Interface 
 # interface = Interface.new
 class Interface
-  def welcome
-    "🔥 Welcome to the Hangman game. You're the
-    guessing player. I will pick a word, and
-    you get to guess the letters."
+  def welcome(board)
+    puts <<~MESSAGE 
+      🔥 Welcome to the Hangman game. You're the
+      guessing player. I will pick a word, and
+      you get to guess the letters.
+    MESSAGE
+    puts show_hint(board)
   end
 
   def guess(board)
