@@ -39,12 +39,14 @@ class Interface
   private
 
   def request_guess
-    code = gets.chomp.downcase.delete(' ')
-    code = code_again until valid?(code)
-    code  
+    guess = gets.chomp.downcase.delete(' ')
+    guess = guess_again until valid?(guess)
+    guess  
   end
 
-  def valid?
-    'Check'
+  def valid?(guess)
+    return false unless guess.length == 1 
+
+    guess =~ /[a-z]/
   end
 end
