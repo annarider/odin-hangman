@@ -89,5 +89,5 @@ if __FILE__ == $PROGRAM_NAME
   TestPlay.test_guess_feedback
   TestPlay.test_game_over
   TestPlay.test_game
-  # TestPlay.test_interface
+  TestPlay.test_interface
 end
