@@ -67,4 +67,12 @@ class Interface
   def guess_history(board)
     "↔️ History of guesses: #{board.guessed_letters}"
   end
+
+  def show_hint(board)
+    "Here's your hint: #{add_spaces(board.correct_guesses)}"
+  end
+
+  def add_spaces(string)
+    string.split.join(' ')
+  end
 end
