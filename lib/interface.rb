@@ -25,7 +25,7 @@ class Interface
   end
 
   def show_board(board, state)
-    puts "↔️ History of guesses: #{board.guessed_letters}"
+    puts guess_history(board)
     puts "🧳 Guess #{State::NUMBER_OF_ROUNDS - state.remaining_guesses} out of #{State::NUMBER_OF_ROUNDS} guesses."
   end
 
@@ -41,7 +41,7 @@ class Interface
   
   def request_guess(board)
     guess = gets.chomp.downcase.delete(' ')
-    guess = guess_again until valid?(board, guess)
+    guess = guess_again(board) until valid?(board, guess)
     guess  
   end
   
@@ -53,13 +53,18 @@ class Interface
     guess.match?(/[a-z]/)
   end
 
-  def guess_again
+  def guess_again(board)
     puts '❌ Invalid letter or you already guessed this letter. Try again.'
     puts valid_guess_example
-    request_guess
+    puts guess_history(board)
+    request_guess(board)
   end
 
   def valid_guess_example
     '🔠 You can pick any letter of the alphabet from a to z.'
+  end
+
+  def guess_history(board)
+    "↔️ History of guesses: #{board.guessed_letters}"
   end
 end
