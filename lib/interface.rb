@@ -9,16 +9,16 @@
 # @example Create a new Interface 
 # interface = Interface.new
 class Interface
-  def welcome(board)
-    puts <<~MESSAGE 
+  def welcome
+   puts <<~MESSAGE 
       🔥 Welcome to the Hangman game. You're the
       guessing player. I will pick a word, and
       you get to guess the letters.
     MESSAGE
-    puts show_hint(board)
   end
 
   def guess(board)
+    puts show_hint(board)
     puts valid_guess_example
     puts <<~REQUEST
       🔥 What's your guess?
@@ -76,6 +76,6 @@ class Interface
   end
 
   def add_spaces(string)
-    string.split.join(' ')
+    string.split('').join(' ')
   end
 end
