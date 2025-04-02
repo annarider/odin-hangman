@@ -10,13 +10,25 @@
 # interface = Interface.new
 class Interface
   def welcome
-    "Welcome to the Hangman game. You're the
+    "🔥 Welcome to the Hangman game. You're the
     guessing player. I will pick a word, and
     you get to guess the letters."
   end
 
   def guess
-    'Placeholder message'
+    puts <<~REQUEST
+      🔥 What's your guess?
+      🆙 Type in your letter:
+    REQUEST
+    request_guess
+  end
+
+  private
+
+  def request_guess
+    code = gets.chomp.downcase.delete(' ').chars
+    code = code_again until valid?(code)
+    code  
   end
 
   def valid?
