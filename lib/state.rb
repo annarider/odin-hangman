@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Ganme State class is responsible for 
+# Game State class is responsible for 
 # passively tracking the game's state 
 # and prepping to save the game.
 # It saves the state such as game_over and 
@@ -25,7 +25,7 @@ class State
   end
 
   def update(guess)
-    @guessed_letters << guess
+    @guessed_letters += guess
     @remaining_guesses -= 1
   end
 end
