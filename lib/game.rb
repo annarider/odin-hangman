@@ -10,8 +10,6 @@
 # game = Game.new
 class Game
   require_relative 'secret'
-
-  NUMBER_OF_ROUNDS = 12
   
   attr_accessor :word, :board, :state, :interface
 
@@ -19,6 +17,6 @@ class Game
     @word = Secret.pick_word
     @interface = Interface.new
     @board = Board.new(@word)
-    @state = State.new(NUMBER_OF_ROUNDS)
+    @state = State.new
   end
 end

@@ -10,10 +10,13 @@
 # @example Create a new Game State
 # state = State.new
 class State
+
+  NUMBER_OF_ROUNDS = 12
+
   attr_accessor :remaining_guesses, :guessed_letters
 
-  def initialize(rounds = 0)
-    @remaining_guesses = rounds
+  def initialize
+    @remaining_guesses = NUMBER_OF_ROUNDS
     @guessed_letters = ''
   end
 
