@@ -24,7 +24,7 @@ class State
     board.win? || @remaining_guesses == 0
   end
 
-  def update_guesses(guess)
+  def update(guess)
     @guessed_letters << guess
     @remaining_guesses -= 1
   end
