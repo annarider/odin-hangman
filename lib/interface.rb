@@ -68,7 +68,7 @@ class Interface
   end  
   
   def guess_history(board)
-    "↔️ History of guesses: #{board.guessed_letters}"
+    "↔️ History of guesses: #{add_spaces(board.guessed_letters)}"
   end  
   
   def show_word(board)
