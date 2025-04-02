@@ -10,6 +10,9 @@
 # game = Game.new
 class Game
   require_relative 'secret'
+  require_relative 'interface'
+  require_relative 'board'
+  require_relative 'state'
   
   attr_accessor :word, :board, :state, :interface
 
@@ -18,5 +21,20 @@ class Game
     @interface = Interface.new
     @board = Board.new(@word)
     @state = State.new
+  end
+
+  def play
+    interface.welcome
+    loop do
+      play_turn
+      interface.show_board(board, state)
+      break if state.game_over?(board)
+    end
+  end
+
+  private
+
+  def play_turn
+    nil
   end
 end
