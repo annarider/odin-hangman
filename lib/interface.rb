@@ -23,10 +23,23 @@ class Interface
     request_guess
   end
 
+  def show_board(board, state)
+    puts "History of guesses: #{board.guessed_letters}"
+    puts "Guess #{State::NUMBER_OF_ROUNDS - state.remaining_guesses} out of #{State::NUMBER_OF_ROUNDS} guesses."
+  end
+
+  def announce_win
+    puts "Game over. You won! You figured out the secret word."
+  end
+
+  def announce_lose
+    puts "Game over. Sorry you ran out of guesses and lost."
+  end
+
   private
 
   def request_guess
-    code = gets.chomp.downcase.delete(' ').chars
+    code = gets.chomp.downcase.delete(' ')
     code = code_again until valid?(code)
     code  
   end
