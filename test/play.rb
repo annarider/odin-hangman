@@ -31,7 +31,7 @@ module TestPlay
     p "Secret word: #{@secret_word}"
     @board = Board.new(@secret_word)
     @game = Game.new
-    @state = State.new(Game::NUMBER_OF_ROUNDS)
+    @state = State.new
   end
   
   def self.test_board_setup
@@ -46,6 +46,7 @@ module TestPlay
   def self.test_state
     p @state
     p "game_over? #{@state.game_over?(@board)}"
+    p "update round: #{state.update(@guess)}"
     p "remaining guesses: #{@state.remaining_guesses}"
   end
 
@@ -78,7 +79,7 @@ module TestPlay
     guess = interface.guess
     p guess
     p interface.valid?(guess)
-    interface.show_board(@board)
+    interface.show_board(@board, @state)
   end
 end
 
