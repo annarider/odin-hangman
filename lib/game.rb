@@ -30,6 +30,7 @@ class Game
       interface.show_board(board, state)
       break if state.game_over?(board)
     end
+    announce_end
   end
 
   private
@@ -38,5 +39,14 @@ class Game
     guess = interface.guess(board)
     board.track(guess)
     state.update(guess)
+  end
+
+  def announce_end
+    puts "The secret word was: #{board.word}"
+    if board.win?
+      interface.announce_win
+    else
+      interface.announce_lose
+    end
   end
 end
