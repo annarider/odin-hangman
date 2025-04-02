@@ -35,6 +35,8 @@ class Game
   private
 
   def play_turn
-    nil
+    guess = interface.guess(board)
+    board.track(guess)
+    state.update(guess)
   end
 end
