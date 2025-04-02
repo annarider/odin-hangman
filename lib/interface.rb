@@ -18,7 +18,7 @@ class Interface
   end
 
   def guess(board)
-    puts show_hint(board)
+    puts "Here's your hint: #{show_word(board)}"
     puts valid_guess_example
     puts <<~REQUEST
       🔥 What's your guess?
@@ -38,6 +38,10 @@ class Interface
 
   def announce_lose
     puts "😱 Game over. Sorry you ran out of guesses and lost."
+  end
+
+  def show_word(board)
+    add_spaces(board.correct_guesses)
   end
   
   private
@@ -69,10 +73,6 @@ class Interface
 
   def guess_history(board)
     "↔️ History of guesses: #{board.guessed_letters}"
-  end
-
-  def show_hint(board)
-    "Here's your hint: #{add_spaces(board.correct_guesses)}"
   end
 
   def add_spaces(string)
