@@ -15,43 +15,51 @@ class Interface
     you get to guess the letters."
   end
 
-  def guess
+  def guess(board)
+    puts valid_guess_example
     puts <<~REQUEST
       🔥 What's your guess?
       🆙 Type in your letter:
     REQUEST
-    request_guess
+    request_guess(board)
   end
 
   def show_board(board, state)
-    puts "History of guesses: #{board.guessed_letters}"
-    puts "Guess #{State::NUMBER_OF_ROUNDS - state.remaining_guesses} out of #{State::NUMBER_OF_ROUNDS} guesses."
+    puts "↔️ History of guesses: #{board.guessed_letters}"
+    puts "🧳 Guess #{State::NUMBER_OF_ROUNDS - state.remaining_guesses} out of #{State::NUMBER_OF_ROUNDS} guesses."
   end
 
   def announce_win
-    puts "Game over. You won! You figured out the secret word."
+    puts "⭐️ Game over. You won! You figured out the secret word."
   end
 
   def announce_lose
-    puts "Game over. Sorry you ran out of guesses and lost."
+    puts "😱 Game over. Sorry you ran out of guesses and lost."
   end
   
   private
   
-  def request_guess
+  def request_guess(board)
     guess = gets.chomp.downcase.delete(' ')
-    guess = guess_again until valid?(guess)
+    guess = guess_again until valid?(board, guess)
     guess  
   end
   
-  def valid?(guess)
-    return false unless guess.length == 1 
+  def valid?(board, guess)
+    return false unless guess.length == 1
+
+    return false if board.guessed_letters.include?(guess)
 
     guess.match?(/[a-z]/)
   end
 
   def guess_again
-    puts '❌ Invalid letter. Please guess again.'
+    puts '❌ Invalid letter or you already guessed this letter. Try again.'
+    puts valid_guess_example
     request_guess
+  end
+
+  def valid_guess_example
+    '🔠 You can pick any letter of the alphabet from a to z.'
   end
 end
