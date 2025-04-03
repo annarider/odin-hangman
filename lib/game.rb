@@ -27,7 +27,7 @@ class Game
     interface.welcome
     loop do
       play_turn
-      interface.show_board(board, state)
+      interface.show_board(state)
       break if state.game_over?(board)
     end
     announce_end
@@ -36,7 +36,7 @@ class Game
   private
 
   def play_turn
-    guess = interface.guess(board)
+    guess = interface.guess(board, state)
     board.track(guess)
     state.update(guess)
   end

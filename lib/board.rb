@@ -10,7 +10,7 @@
 class Board
   require_relative 'secret'
   
-  attr_accessor :word, :guessed_letters, :correct_guesses
+  attr_accessor :word, :correct_guesses
 
   def initialize(word = nil)
     @word = word
@@ -23,7 +23,6 @@ class Board
   end
 
   def track(guess)
-    @guessed_letters << guess
     if word.include?(guess)
       correct(guess)
     else
