@@ -9,8 +9,6 @@
 # board = Board.new
 class Board
   require_relative 'secret'
-
-  NUMBER_OF_ROUNDS = 12
   
   attr_accessor :word, :guessed_letters, :correct_guesses
 
