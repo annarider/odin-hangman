@@ -41,6 +41,8 @@ State class
 - instance methods:
 -- initialize 
 -- tracks history of guesses
+-- save game state to a file
+-- load game state from a file
 
 Board class (tracks board state)
 - purpose: validates guesses against word, provides feedback
@@ -59,8 +61,6 @@ Interface class
 -- display guess
 -- display history of guess after every turn
 -- display win & game over announcements
-
-Serialization class
 
  main.rb
 - instantiate new Game object
