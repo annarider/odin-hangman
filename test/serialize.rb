@@ -20,6 +20,10 @@ class Test
     data = state.save(board)
 
     puts data
+
+    loaded_data = YAML.load(data)
+
+    puts loaded_data
   end
 end
 

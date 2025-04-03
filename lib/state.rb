@@ -31,12 +31,12 @@ class State
   end
 
   def save(board)
-    serialized_data = YAML.dump(serialize(board))
+    serialized_data = YAML.dump(format(board))
   end
 
   private
 
-  def serialize(board)
+  def format(board)
     <<~GAME
     word: #{board.word}
     correct_guesses: #{board.correct_guesses}
