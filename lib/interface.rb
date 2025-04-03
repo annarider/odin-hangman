@@ -6,11 +6,11 @@
 # inputs, and displays messages to the
 # players.
 #
-# @example Create a new Interface 
+# @example Create a new Interface
 # interface = Interface.new
 class Interface
   def welcome
-   puts <<~MESSAGE 
+    puts <<~MESSAGE
       🔥 Welcome to the Hangman game. You're the
       guessing player. I will pick a word, and
       you get to guess the letters.
@@ -33,48 +33,48 @@ class Interface
   end
 
   def announce_win
-    puts "⭐️ Game over. You won! You figured out the secret word."
+    puts '⭐️ Game over. You won! You figured out the secret word.'
   end
 
   def announce_lose
-    puts "😱 Game over. Sorry you ran out of guesses and lost."
-  end  
-  
+    puts '😱 Game over. Sorry you ran out of guesses and lost.'
+  end
+
   private
-  
+
   def request_guess(state)
     guess = gets.chomp.downcase.delete(' ')
     guess = guess_again(board) until valid?(state, guess)
-    guess  
-  end  
-  
+    guess
+  end
+
   def valid?(state, guess)
     return false unless guess.length == 1
-    
+
     return false if state.guessed_letters.include?(guess)
-    
+
     guess.match?(/[a-z]/)
-  end  
-  
-  def guess_again(board)
+  end
+
+  def guess_again(state)
     puts '❌ Invalid letter or you already guessed this letter. Try again.'
     puts valid_guess_example
     puts guess_history(state)
     request_guess(state)
-  end  
-  
+  end
+
   def valid_guess_example
     '🔠 You can pick any letter of the alphabet from a to z.'
-  end  
-  
+  end
+
   def guess_history(state)
     "↔️ History of guesses: #{add_spaces(state.guessed_letters)}"
-  end  
-  
+  end
+
   def show_word(board)
     add_spaces(board.correct_guesses)
   end
-  
+
   def add_spaces(string)
     string.split('').join(' ')
   end

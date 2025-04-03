@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 # Test Play tests Hangman
-# game play by allowing to set the 
-# secret word and guesses. It 
-# tests game logic, scoring, 
+# game play by allowing to set the
+# secret word and guesses. It
+# tests game logic, scoring,
 # interface, etc.
 #
 require_relative '../lib/secret'
@@ -20,8 +20,9 @@ module TestPlay
 
   class MockInterface < Interface
     def initialize(guesses)
+      super()
       @guesses = guesses
-      @current_guess_count = 0 
+      @current_guess_count = 0
     end
   end
 
@@ -33,7 +34,7 @@ module TestPlay
     @game = Game.new
     @state = State.new
   end
-  
+
   def self.test_board_setup
     @guess = 'a'
     # @board.word = @guess
@@ -42,7 +43,7 @@ module TestPlay
     p "check word guess: #{@board.win?}"
     p "check random guess: #{@board.win?}"
   end
-  
+
   def self.test_state
     p @state
     p "game_over? #{@state.game_over?(@board)}"
@@ -51,7 +52,7 @@ module TestPlay
   end
 
   def self.test_guess_feedback
-    random_vowel = ['a', 'e', 'i', 'o', 'u', 'y'].sample
+    random_vowel = %w[a e i o u y].sample
     p random_vowel
     p "feedback on random vowel: #{@board.track(random_vowel)}"
     p "feedback on guess: #{@board.track(@guess)}"

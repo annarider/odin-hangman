@@ -60,6 +60,8 @@ Interface class
 -- display history of guess after every turn
 -- display win & game over announcements
 
+Serialization class
+
  main.rb
 - instantiate new Game object
 - loops to ask to play another round 

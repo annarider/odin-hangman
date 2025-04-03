@@ -15,7 +15,15 @@ class Secret
   attr_accessor :dictionary, :word 
 
   def self.pick_word
+    begin
     dictionary = File.read(FILE_NAME).split
     dictionary.select { |word| word.length.between?(MIN_WORD_LENGTH, MAX_WORD_LENGTH)}.sample
+    rescue Errno::ENOENT => e
+      puts "Error: Dictionary file not found. Please check #{FILE_NAME}."
+      exit(1) # Exit with error code
+    rescue StandardError => e
+      puts "Error reading dictionary file: #{e.message}"
+      exit(1)
+    end
   end
 end
