@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Board controls the game rules
 # for the Hangman game. Its duties
 # include validating guesses and
