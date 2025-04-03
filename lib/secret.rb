@@ -15,7 +15,7 @@ class Secret
   attr_accessor :dictionary, :word 
 
   def self.pick_word
-    @dictionary = File.read(FILE_NAME).split
-    @word = @dictionary.select { |word| word.length.between?(MIN_WORD_LENGTH, MAX_WORD_LENGTH)}.sample
+    dictionary = File.read(FILE_NAME).split
+    dictionary.select { |word| word.length.between?(MIN_WORD_LENGTH, MAX_WORD_LENGTH)}.sample
   end
 end
