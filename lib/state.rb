@@ -31,7 +31,7 @@ class State
   end
 
   def save(board)
-    data = serialize(board)
+    serialized_data = YAML.dump(serialize(board))
   end
 
   private

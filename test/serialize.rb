@@ -17,7 +17,9 @@ class Test
     state.guessed_letters = 'a'
     state.remaining_guesses = 11
 
-    puts state.save(board)
+    data = state.save(board)
+
+    puts data
   end
 end
 
