@@ -6,14 +6,14 @@
 # interface and board, prompts the objects
 # to perform actions.
 #
-# @example Create a new Game 
+# @example Create a new Game
 # game = Game.new
 class Game
   require_relative 'secret'
   require_relative 'interface'
   require_relative 'board'
   require_relative 'state'
-  
+
   attr_accessor :word, :board, :state, :interface
 
   def initialize
