@@ -5,11 +5,11 @@
 # include validating guesses and
 # providing feedback.
 #
-# @example Create a new Board 
+# @example Create a new Board
 # board = Board.new
 class Board
   require_relative 'secret'
-  
+
   attr_accessor :word, :correct_guesses
 
   def initialize(word = nil)
@@ -23,14 +23,12 @@ class Board
   end
 
   def track(guess)
-    if word.include?(guess)
-      correct(guess)
-    else
-      nil
-    end
+    return unless word.include?(guess)
+
+    correct(guess)
   end
 
-  private 
+  private
 
   def correct(guess)
     letter_indices = []
