@@ -1,0 +1,5 @@
+--- |
+  word: sails
+  correct_guesses: a
+  remaining_guesses: 11
+  guessed_letters: a

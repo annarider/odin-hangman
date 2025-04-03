@@ -9,6 +9,7 @@ require_relative '../lib/state'
 
 class Test
   WORD = 'sails'
+  FILE_NAME = 'game1'
 
   def self.serialize
     board = Board.new(WORD)
@@ -17,13 +18,7 @@ class Test
     state.guessed_letters = 'a'
     state.remaining_guesses = 11
 
-    data = state.save(board)
-
-    puts data
-
-    loaded_data = YAML.load(data)
-
-    puts loaded_data
+    state.save(board, FILE_NAME)
   end
 end
 

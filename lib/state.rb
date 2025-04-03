@@ -30,8 +30,13 @@ class State
     @remaining_guesses -= 1
   end
 
-  def save(board)
+  def save(board, name)
     serialized_data = YAML.dump(format(board))
+    Dir.mkdir('saved_games') unless Dir.exist?('saved_games')
+    file_name = "saved_games/#{name}.txt"
+    File.open(file_name, 'w') do |file|
+      file.puts serialized_data
+    end
   end
 
   private
