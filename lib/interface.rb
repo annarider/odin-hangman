@@ -44,7 +44,7 @@ class Interface
 
   def request_guess(state)
     guess = gets.chomp.downcase.delete(' ')
-    guess = guess_again(board) until valid?(state, guess)
+    guess = guess_again(state) until valid?(state, guess)
     guess
   end
 
