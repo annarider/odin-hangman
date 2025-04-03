@@ -9,6 +9,8 @@
 #
 # @example Create a new Game State
 # state = State.new
+require 'yaml'
+
 class State
   NUMBER_OF_ROUNDS = 12
 
@@ -26,5 +28,20 @@ class State
   def update(guess)
     @guessed_letters += guess
     @remaining_guesses -= 1
+  end
+
+  def save(board)
+    data = serialize(board)
+  end
+
+  private
+
+  def serialize(board)
+    <<~GAME
+    word: #{board.word}
+    correct_guesses: #{board.correct_guesses}
+    remaining_guesses: #{remaining_guesses}
+    guessed_letters: #{guessed_letters}
+    GAME
   end
 end
