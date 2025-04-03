@@ -20,7 +20,7 @@ class State
   end
 
   def game_over?(board)
-    board.win? || @remaining_guesses == 0
+    board.win? || @remaining_guesses.zero?
   end
 
   def update(guess)
