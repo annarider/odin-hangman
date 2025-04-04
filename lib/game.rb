@@ -24,7 +24,9 @@ class Game
   end
 
   def play
-    interface.welcome
+    game_name = interface.welcome
+    loaded_game @state.load(game_name)
+    launch(loaded_game) if loaded_game
     loop do
       play_turn
       interface.show_board(state)
@@ -48,5 +50,12 @@ class Game
     else
       interface.announce_lose
     end
+  end
+
+  def launch(game)
+    board.word = game[:word]
+    board.correct_guesses = game[:correct_guesses]
+    state.remaining_guesses = game[:remaining_guesses]
+    state.guessed_letters = game[:guessed_letters]
   end
 end
