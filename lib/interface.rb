@@ -15,6 +15,7 @@ class Interface
       guessing player. I will pick a word, and
       you get to guess the letters.
     MESSAGE
+    load_game
   end
 
   def guess(board, state)
@@ -86,6 +87,6 @@ class Interface
       Here are all the saved games you can play:
     MESSAGE
     puts Dir.entries('./saved_games')
-    gets.chomp.downcase
+    gets.chomp.downcase.slice!('.txt')
   end
 end
