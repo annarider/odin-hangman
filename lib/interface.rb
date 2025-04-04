@@ -78,4 +78,14 @@ class Interface
   def add_spaces(string)
     string.split('').join(' ')
   end
+
+  def load_game
+    puts <<~MESSAGE
+      🔮 If you want to start a new game, hit return.
+      If you want to play a saved game, give me the game's name. 
+      Here are all the saved games you can play:
+    MESSAGE
+    puts Dir.entries('./saved_games')
+    gets.chomp.downcase
+  end
 end
