@@ -31,12 +31,10 @@ class State
   end
 
   def save(board, name)
-    serialized_data = YAML.dump(format(board))
+    serialized_yaml = YAML.dump(format(board))
     Dir.mkdir('saved_games') unless Dir.exist?('saved_games')
     file_name = "saved_games/#{name}.txt"
-    File.open(file_name, 'w') do |file|
-      file.puts serialized_data
-    end
+    File.write(file_name, serialized_yaml)
   end
 
   def load(name)
