@@ -11,7 +11,7 @@ require_relative '../lib/board'
 
 class Test
   GUESS = 'a'
-  FILE_NAME = 'game-name1.txt'
+  FILE_NAME = 'game-name1'
 
   def self.setup
     game = Game.new
@@ -26,6 +26,7 @@ class Test
     puts 'Testing save functionality:'
     saved = game.state.save(game.board, FILE_NAME)
     puts saved
+    p saved
     puts "Successful save? #{saved ? 'PASS' : 'FAIL'}"
   end
   
@@ -33,9 +34,10 @@ class Test
     puts 'Testing load functionality:'
     loaded_game = Game.new
     loaded = loaded_game.state.load(FILE_NAME)
-    puts "Loaded Secret word: #{loaded_game.board.word}"
-    puts "Loaded guesses: #{loaded_game.state.guessed_letters}"
-    puts "Successful load? #{loaded_game ? 'PASS' : 'FAIL'}"
+    p loaded
+    puts "Loaded Secret word: #{loaded.board.word}"
+    puts "Loaded guesses: #{loaded.state.guessed_letters}"
+    puts "Successful load? #{loaded ? 'PASS' : 'FAIL'}"
   end
 end
 

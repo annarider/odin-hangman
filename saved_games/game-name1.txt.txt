@@ -1,0 +1,5 @@
+--- |
+  word: woman
+  correct_guesses: ___a_
+  remaining_guesses: 11
+  guessed_letters: a

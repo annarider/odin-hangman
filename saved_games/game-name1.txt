@@ -1,0 +1,5 @@
+--- |
+  word: simply
+  correct_guesses: ______
+  remaining_guesses: 11
+  guessed_letters: a
