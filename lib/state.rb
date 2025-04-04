@@ -39,18 +39,17 @@ class State
 
   def load(name)
     serialized_yaml = File.read("./saved_games/#{name}.txt")
-    game_data = YAML.load(serialized_yaml)
-    game_data
+    YAML.load(serialized_yaml)
   end
 
   private
 
   def format(board)
-    <<~GAME
-    word: #{board.word}
-    correct_guesses: #{board.correct_guesses}
-    remaining_guesses: #{remaining_guesses}
-    guessed_letters: #{guessed_letters}
-    GAME
+    {
+      word: board.word,
+      correct_guesses: board.correct_guesses,
+      remaining_guesses: remaining_guesses,
+      guessed_letters: guessed_letters
+      }
   end
 end
