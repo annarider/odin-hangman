@@ -39,6 +39,12 @@ class State
     end
   end
 
+  def load(name)
+    serialized_yaml = File.read("./saved_games/#{name}.txt")
+    game_data = YAML.load(serialized_yaml)
+    game_data
+  end
+
   private
 
   def format(board)
