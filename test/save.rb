@@ -35,8 +35,8 @@ class Test
     loaded_game = Game.new
     loaded = loaded_game.state.load(FILE_NAME)
     p loaded
-    puts "Loaded Secret word: #{loaded.board.word}"
-    puts "Loaded guesses: #{loaded.state.guessed_letters}"
+    puts "Loaded Secret word: #{loaded[:word]}"
+    puts "Loaded guesses: #{loaded[:guessed_letters]}"
     puts "Successful load? #{loaded ? 'PASS' : 'FAIL'}"
   end
 end
