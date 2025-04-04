@@ -35,11 +35,22 @@ class State
     Dir.mkdir('saved_games') unless Dir.exist?('saved_games')
     file_name = "saved_games/#{name}.txt"
     File.write(file_name, serialized_yaml)
+  rescue IOError
+    puts "Error: Couldn't save the game"
+  rescue StandardError => e
+    puts "Error saving the game. Error message: #{e.message}"
+    exit(1)
   end
 
   def load(name)
     serialized_yaml = File.read("./saved_games/#{name}.txt")
     YAML.load(serialized_yaml)
+  rescue Errno::ENOENT
+    puts "Error: Game file not found. Please check #{name}."
+    puts "Let's play a new game instead."
+  rescue StandardError => e
+    puts "Error reading saved game: #{e.message}"
+    puts "Let's play a new game instead."
   end
 
   private
