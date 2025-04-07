@@ -21,7 +21,7 @@ class Test
     puts "Original guesses: #{game.state.guessed_letters}"
     game
   end
-  
+
   def self.save(game)
     puts 'Testing save functionality:'
     saved = game.state.save(game.board, FILE_NAME)
@@ -29,8 +29,8 @@ class Test
     p saved
     puts "Successful save? #{saved ? 'PASS' : 'FAIL'}"
   end
-  
-  def self.load(game)
+
+  def self.load
     puts 'Testing load functionality:'
     loaded_game = Game.new
     loaded = loaded_game.state.load(FILE_NAME)
@@ -44,5 +44,5 @@ end
 if __FILE__ == $PROGRAM_NAME
   game = Test.setup
   Test.save(game)
-  Test.load(game)
+  Test.load
 end

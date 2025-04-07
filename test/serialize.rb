@@ -22,6 +22,4 @@ class Test
   end
 end
 
-if __FILE__ == $PROGRAM_NAME
-  Test.serialize
-end
+Test.serialize if __FILE__ == $PROGRAM_NAME
