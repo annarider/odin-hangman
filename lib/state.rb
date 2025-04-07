@@ -43,8 +43,10 @@ class State
   end
 
   def load(name)
-    serialized_yaml = File.read("./saved_games/#{name}.txt")
-    YAML.load(serialized_yaml)
+    if name
+      serialized_yaml = File.read("./saved_games/#{name}.txt")
+      YAML.load(serialized_yaml)
+    end
   rescue Errno::ENOENT
     puts "Error: Game file not found. Please check #{name}."
     puts "Let's play a new game instead."
