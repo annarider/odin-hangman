@@ -11,7 +11,7 @@ require_relative '../lib/board'
 
 class Test
   GUESS = 'a'
-  FILE_NAME = 'game-name1'
+  FILE_NAME = 'game1'
 
   def self.setup
     game = Game.new

@@ -1,5 +1,5 @@
---- |
-  word: sails
-  correct_guesses: a
-  remaining_guesses: 11
-  guessed_letters: a
+---
+:word: language
+:correct_guesses: _a___a__
+:remaining_guesses: 11
+:guessed_letters: a
