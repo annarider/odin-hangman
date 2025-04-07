@@ -25,7 +25,7 @@ class Game
 
   def play
     game_name = interface.welcome
-    loaded_game @state.load(game_name)
+    loaded_game = state.load(game_name)
     launch(loaded_game) if loaded_game
     loop do
       play_turn
@@ -53,6 +53,7 @@ class Game
   end
 
   def launch(game)
+    p game.is_a?(String)
     board.word = game[:word]
     board.correct_guesses = game[:correct_guesses]
     state.remaining_guesses = game[:remaining_guesses]

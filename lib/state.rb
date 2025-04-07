@@ -44,8 +44,9 @@ class State
 
   def load(name)
     if name
-      serialized_yaml = File.read("./saved_games/#{name}.txt")
-      YAML.load(serialized_yaml)
+      s = YAML.load_file("./saved_games/#{name}.txt")
+      p s.is_a?(Hash)
+      s
     end
   rescue Errno::ENOENT
     puts "Error: Game file not found. Please check #{name}."
