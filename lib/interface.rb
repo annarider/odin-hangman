@@ -43,7 +43,7 @@ class Interface
 
   def save_game
     puts <<~MESSAGE
-      🧳 Would you like to save this game? Type in the game's 
+      🧳 Would you like to save this game? Type in the game's#{' '}
       filename you want to save it as. Otherwise, hit return
       to keep guessing.
     MESSAGE
@@ -92,7 +92,7 @@ class Interface
   def load_game
     puts <<~MESSAGE
       🔮 If you want to start a new game, hit return.
-      If you want to play a saved game, give me the game's name. 
+      If you want to play a saved game, give me the game's name.#{' '}
       Here are all the saved games you can play:
     MESSAGE
     puts Dir.children('./saved_games')
