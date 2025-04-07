@@ -96,6 +96,6 @@ class Interface
       Here are all the saved games you can play:
     MESSAGE
     puts Dir.children('./saved_games')
-    gets.chomp.downcase.slice!('.txt')
+    gets.chomp.downcase.delete('.txt')
   end
 end

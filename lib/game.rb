@@ -55,7 +55,6 @@ class Game
   end
 
   def launch(game)
-    p game.is_a?(String)
     board.word = game[:word]
     board.correct_guesses = game[:correct_guesses]
     state.remaining_guesses = game[:remaining_guesses]
