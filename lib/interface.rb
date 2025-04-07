@@ -95,7 +95,7 @@ class Interface
       If you want to play a saved game, give me the game's name. 
       Here are all the saved games you can play:
     MESSAGE
-    puts Dir.entries('./saved_games')
+    puts Dir.children('./saved_games')
     gets.chomp.downcase.slice!('.txt')
   end
 end
