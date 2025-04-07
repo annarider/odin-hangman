@@ -1,0 +1,5 @@
+---
+:word: parker
+:correct_guesses: ______
+:remaining_guesses: 12
+:guessed_letters: ''
