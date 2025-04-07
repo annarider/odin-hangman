@@ -38,6 +38,8 @@ class Game
   private
 
   def play_turn
+    game_name = interface.save_game
+    state.save(board, game_name) if game_name
     guess = interface.guess(board, state)
     board.track(guess)
     state.update(guess)

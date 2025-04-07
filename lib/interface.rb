@@ -41,6 +41,15 @@ class Interface
     puts '😱 Game over. Sorry you ran out of guesses and lost.'
   end
 
+  def save_game
+    puts <<~MESSAGE
+      🧳 Would you like to save this game? Type in the game's 
+      filename you want to save it as. Otherwise, hit return
+      to keep guessing.
+    MESSAGE
+    gets.chomp.downcase.delete(' ')
+  end
+
   private
 
   def request_guess(state)
