@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'yaml'
+
 # Game State class is responsible for
 # passively tracking the game's state
 # and prepping to save the game.
@@ -9,8 +11,6 @@
 #
 # @example Create a new Game State
 # state = State.new
-require 'yaml'
-
 class State
   NUMBER_OF_ROUNDS = 12
 
@@ -60,6 +60,6 @@ class State
       correct_guesses: board.correct_guesses,
       remaining_guesses: remaining_guesses,
       guessed_letters: guessed_letters
-      }
+    }
   end
 end
