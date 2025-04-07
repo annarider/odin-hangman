@@ -43,11 +43,7 @@ class State
   end
 
   def load(name)
-    if name
-      s = YAML.load_file("./saved_games/#{name}.txt")
-      p s.is_a?(Hash)
-      s
-    end
+    YAML.load_file("./saved_games/#{name}.txt") if name
   rescue Errno::ENOENT
     puts "Error: Game file not found. Please check #{name}."
     puts "Let's play a new game instead."
