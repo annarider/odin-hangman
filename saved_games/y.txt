@@ -1,0 +1,5 @@
+---
+:word: parker
+:correct_guesses: _a____
+:remaining_guesses: 6
+:guessed_letters: aiusnv

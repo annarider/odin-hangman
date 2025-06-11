@@ -1,0 +1,5 @@
+---
+:word: parker
+:correct_guesses: _a____
+:remaining_guesses: 10
+:guessed_letters: ai

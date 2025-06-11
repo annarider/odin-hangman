@@ -1,0 +1,5 @@
+---
+:word: parker
+:correct_guesses: pa____
+:remaining_guesses: 5
+:guessed_letters: aiusnvp

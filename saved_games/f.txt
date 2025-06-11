@@ -1,0 +1,5 @@
+---
+:word: parker
+:correct_guesses: pa__e_
+:remaining_guesses: 1
+:guessed_letters: aiusnvpetlw

@@ -1,0 +1,5 @@
+---
+:word: published
+:correct_guesses: _________
+:remaining_guesses: 11
+:guessed_letters: a
